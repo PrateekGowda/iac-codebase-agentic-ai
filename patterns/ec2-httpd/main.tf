@@ -68,7 +68,7 @@ resource "aws_security_group" "httpd" {
 
 resource "aws_instance" "httpd" {
   ami                         = data.aws_ami.amazon_linux.id
-  instance_type               = "t3.small"
+  instance_type               = "t3.micro"
   subnet_id                   = data.aws_subnets.default.ids[0]
   vpc_security_group_ids      = [aws_security_group.httpd.id]
   iam_instance_profile        = aws_iam_instance_profile.ssm.name
